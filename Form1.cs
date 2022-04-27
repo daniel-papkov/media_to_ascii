@@ -21,19 +21,23 @@ namespace png_to_asci
                             //2.32 ratio in text vertical
         public  int width, height;
         Image source;//we will add the picture to here so we wont lose resolution
-        string gray_scale = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,^`'.                                                   ";//detailed stolen from google
+        string gray_scale = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,^`'.";
+        //";//detailed stolen from google
+        //" .:-=+*#%@"
         //in case of console this is white to black
         //(depends on background color and negetives so in html this is backwards by default)
+        //string gray_scale= Reverse("   .:-=+*#%@");
 
-        string short_gray_scale = " .:-=+*#%@";
+        //gray_scale=Reverse(gray_scale);
+        //string short_gray_scale = " .:-=+*#%@";
         //same but shorter
         public Form1()
         {
             InitializeComponent();
             //SetConsoleFont
-            //for (int i = 0; i < 300; i++)
+            //for (int i = 0; i < 9999; i++)
             //{
-            //    Console.WriteLine(i);
+            //    Console.Write(i);
             //}
         }
 
@@ -55,7 +59,7 @@ namespace png_to_asci
 
         private void pbx_preview_Click(object sender, EventArgs e)
         {
-            Image img = Image.FromFile(txt_path.Text); ;
+            Image img = Image.FromFile(txt_path.Text);
             pbx_preview.Image = img;
             source = img;
             pbx_preview.SizeMode = PictureBoxSizeMode.Zoom;
@@ -87,16 +91,43 @@ namespace png_to_asci
 
         private void btn_convert_Click(object sender, EventArgs e)
         {
-            var new_bitmap=MakeGrayscale(new Bitmap(txt_path.Text));
-            pbx_preview.Image = new_bitmap;
-            //new_bitmap = ResizeImage(new_bitmap, width * 2, height);
-            width *= 2;
-            char[,] arr=gray_scale_to_ascii(new_bitmap);
-            for (int x = 0; x < arr.GetLength(0); x++)
+            Bitmap pic = (Bitmap)pbx_preview.Image;
+            pic = ResizeImage(pic, pic.Width, pic.Height / 2);//this  fixes natural text ratio(single char ratio in cmd)
+                                                              //makes a square image to square to simplify
+
+            double y_ratio = 1;
+            double x_ratio = 1;
+
+            if (pic.Height>62)
+                y_ratio = pic.Height / 62;//62 vertical pixels
+            if(pic.Height>264)
+                x_ratio = pic.Width / 264;//264 horizontal pixels
+
+            x_ratio = Math.Max(x_ratio, y_ratio);
+            x_ratio = 1 / x_ratio;
+
+            pic = ResizeImage(pic, (int)(pic.Width*x_ratio), (int)(pic.Height * x_ratio));
+
+
+
+            pbx_preview.Image = pic;
+
+
+            pic=MakeGrayscale((Bitmap)(pic));
+            pbx_preview.Image = pic;
+
+            char[,] arr=gray_scale_to_ascii(pic);
+
+            print_ascii_to_console(arr);
+        }
+
+        private void print_ascii_to_console(char[,] arr)
+        {
+            for (int x = 0; x < arr.GetLength(1); x++)
             {
-                for (int y = 0; y < arr.GetLength(1); y++)
+                for (int y = 0; y < arr.GetLength(0); y++)
                 {
-                    Console.Write(arr[y,x]);
+                    Console.Write(arr[y, x]);
                 }
                 Console.WriteLine();
             }
@@ -143,18 +174,24 @@ namespace png_to_asci
             //final ratio is width of chars / width of image
             // height of chars / height of image
             //font Courier
-            char[,] output = new char[copy.Height, copy.Width];
-            for (int x = 0; x < copy.Height; x++)
+            char[,] output = new char[copy.Width, copy.Height];
+            //int l1 = copy.Width;
+            //int l2 = copy.Height;
+            char next_pixel=' ';
+            int len = gray_scale.Length;
+            //Console.WriteLine("resolution is:"+l1+"X"+l2);
+            for (int x = 0; x < copy.Width; x++)
             {
-                for (int y = 0; y < copy.Width; y++)
-                {                 
-                    if(x==0)
-                    {
-                        output[x, y] = '~';
-                        continue;
-                    }
+                for (int y = 0; y < copy.Height; y++)
+                {                    
                     Color originalColor = copy.GetPixel(x, y);                    
-                    output[x, y] = (gray_scale[(int)(originalColor.R/4)]);
+                    next_pixel = gray_scale[(int)(originalColor.R / (len+1))];// was /4
+                    output[x, y] = next_pixel;                    
+                    //catch
+                    //{
+                    //    Console.WriteLine("error thrown at gray_scale_to_ascii");
+                    //    Console.WriteLine("x:" + x + "y:" + y + "pixel is:"+next_pixel);
+                    //}
                 }
             }
             return output;

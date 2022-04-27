@@ -30,11 +30,11 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab_pic = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txt_path = new System.Windows.Forms.TextBox();
-            this.btn_convert = new System.Windows.Forms.Button();
             this.pbx_preview = new System.Windows.Forms.PictureBox();
+            this.btn_convert = new System.Windows.Forms.Button();
+            this.txt_path = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tab_pic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_preview)).BeginInit();
@@ -64,33 +64,16 @@
             this.tab_pic.Text = "png_to_ascii";
             this.tab_pic.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // pbx_preview
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 74);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(122, 109);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(153, 49);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "browse image";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // txt_path
-            // 
-            this.txt_path.Location = new System.Drawing.Point(122, 164);
-            this.txt_path.Name = "txt_path";
-            this.txt_path.Size = new System.Drawing.Size(311, 20);
-            this.txt_path.TabIndex = 1;
-            this.txt_path.Visible = false;
+            this.pbx_preview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pbx_preview.Location = new System.Drawing.Point(439, 25);
+            this.pbx_preview.Name = "pbx_preview";
+            this.pbx_preview.Size = new System.Drawing.Size(598, 526);
+            this.pbx_preview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbx_preview.TabIndex = 3;
+            this.pbx_preview.TabStop = false;
+            this.pbx_preview.Click += new System.EventHandler(this.pbx_preview_Click);
             // 
             // btn_convert
             // 
@@ -102,14 +85,33 @@
             this.btn_convert.UseVisualStyleBackColor = true;
             this.btn_convert.Click += new System.EventHandler(this.btn_convert_Click);
             // 
-            // pbx_preview
+            // txt_path
             // 
-            this.pbx_preview.Location = new System.Drawing.Point(439, 25);
-            this.pbx_preview.Name = "pbx_preview";
-            this.pbx_preview.Size = new System.Drawing.Size(606, 526);
-            this.pbx_preview.TabIndex = 3;
-            this.pbx_preview.TabStop = false;
-            this.pbx_preview.Click += new System.EventHandler(this.pbx_preview_Click);
+            this.txt_path.Location = new System.Drawing.Point(122, 164);
+            this.txt_path.Name = "txt_path";
+            this.txt_path.Size = new System.Drawing.Size(311, 20);
+            this.txt_path.TabIndex = 1;
+            this.txt_path.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(122, 109);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(153, 49);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "browse image";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1353, 581);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
