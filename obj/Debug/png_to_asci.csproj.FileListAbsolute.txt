@@ -9,3 +9,14 @@ C:\Users\beta\source\repos\png_to_asci\obj\Debug\png_to_asci.csproj.GenerateReso
 C:\Users\beta\source\repos\png_to_asci\obj\Debug\png_to_asci.csproj.CoreCompileInputs.cache
 C:\Users\beta\source\repos\png_to_asci\obj\Debug\png_to_asci.exe
 C:\Users\beta\source\repos\png_to_asci\obj\Debug\png_to_asci.pdb
+C:\Users\beta\source\repos\png_to_asci\media_to_ascii\bin\Debug\png_to_asci.exe.config
+C:\Users\beta\source\repos\png_to_asci\media_to_ascii\bin\Debug\png_to_asci.exe
+C:\Users\beta\source\repos\png_to_asci\media_to_ascii\bin\Debug\png_to_asci.pdb
+C:\Users\beta\source\repos\png_to_asci\media_to_ascii\obj\Debug\png_to_asci.csproj.AssemblyReference.cache
+C:\Users\beta\source\repos\png_to_asci\media_to_ascii\obj\Debug\png_to_asci.csproj.SuggestedBindingRedirects.cache
+C:\Users\beta\source\repos\png_to_asci\media_to_ascii\obj\Debug\png_to_asci.Form1.resources
+C:\Users\beta\source\repos\png_to_asci\media_to_ascii\obj\Debug\png_to_asci.Properties.Resources.resources
+C:\Users\beta\source\repos\png_to_asci\media_to_ascii\obj\Debug\png_to_asci.csproj.GenerateResource.cache
+C:\Users\beta\source\repos\png_to_asci\media_to_ascii\obj\Debug\png_to_asci.csproj.CoreCompileInputs.cache
+C:\Users\beta\source\repos\png_to_asci\media_to_ascii\obj\Debug\png_to_asci.exe
+C:\Users\beta\source\repos\png_to_asci\media_to_ascii\obj\Debug\png_to_asci.pdb

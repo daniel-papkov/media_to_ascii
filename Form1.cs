@@ -21,7 +21,9 @@ namespace png_to_asci
                             //2.32 ratio in text vertical
         public  int width, height;
         Image source;//we will add the picture to here so we wont lose resolution
-        string gray_scale = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,^`'.";
+        //left is the most white right is the most black
+
+        //string gray_scale = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,^`'.  ";
         //";//detailed stolen from google
         //" .:-=+*#%@"
         //in case of console this is white to black
@@ -29,7 +31,7 @@ namespace png_to_asci
         //string gray_scale= Reverse("   .:-=+*#%@");
 
         //gray_scale=Reverse(gray_scale);
-        //string short_gray_scale = " .:-=+*#%@";
+        string gray_scale = " .:-=+*#%@";
         //same but shorter
         public Form1()
         {
@@ -101,7 +103,7 @@ namespace png_to_asci
             if (pic.Height>62)
                 y_ratio = pic.Height / 62;//62 vertical pixels
             if(pic.Height>264)
-                x_ratio = pic.Width / 264;//264 horizontal pixels
+                x_ratio = pic.Width / 263;//264 horizontal pixels
 
             x_ratio = Math.Max(x_ratio, y_ratio);
             x_ratio = 1 / x_ratio;
@@ -178,7 +180,7 @@ namespace png_to_asci
             //int l1 = copy.Width;
             //int l2 = copy.Height;
             char next_pixel=' ';
-            int len = gray_scale.Length;
+            int len = 255/gray_scale.Length;
             //Console.WriteLine("resolution is:"+l1+"X"+l2);
             for (int x = 0; x < copy.Width; x++)
             {
