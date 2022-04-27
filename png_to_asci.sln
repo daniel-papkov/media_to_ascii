@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32414.318
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "png_to_asci", "png_to_asci.csproj", "{8C17D646-CC13-4BCA-876A-52C9788B2069}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C17D646-CC13-4BCA-876A-52C9788B2069}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C17D646-CC13-4BCA-876A-52C9788B2069}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C17D646-CC13-4BCA-876A-52C9788B2069}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C17D646-CC13-4BCA-876A-52C9788B2069}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {88D36F24-5ABD-4809-BE6C-51ACAB9BC53B}
+	EndGlobalSection
+EndGlobal
